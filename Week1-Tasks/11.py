@@ -1,0 +1,5 @@
+name = input("What is your name? ")
+print(name.upper())
+print(name.lower())
+print(name.title())
+print(f"Your name has {len(name)} characters.")

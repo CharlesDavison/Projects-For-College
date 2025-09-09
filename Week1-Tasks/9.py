@@ -1,0 +1,5 @@
+a = int(input("Enter a whole number: "))
+b = int(input("Enter another whole number: "))
+print(f"Total: {a + b}")a = int(input("Enter a whole number: "))
+b = int(input("Enter another whole number: "))
+print(f"Total: {a + b}")
