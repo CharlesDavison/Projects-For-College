@@ -1,9 +1,9 @@
-alcoholUnits = int()
+age = int()
 
-alcoholUnits = int(input("Please Enter How Many Units Of Alcohol You Have Consumed: "))
+age = int(input("Please Enter Your Age: "))
 
-if alcoholUnits > 3:
-    print("You have exceeded your recommended daily allowance of alcohol today.")
+if age >= 18:
+    print("You are old enough to get into nightclubs.")
 
 else:
-    print("You have kept within the daily guidelines for alcohol intake.")
+    print("You are not old enough to get into nightclubs.")

@@ -1,9 +1,9 @@
-age = int()
+wishlist = [str()]*5
 
-age = int(input("Please Enter Your Age: "))
+for i in range(5):
+    wishlist[i] = input(f"If you won the lottery, what would be the number {i + 1} thing you would buy? ")
 
-if age >= 18:
-    print("You are old enough to get into nightclubs.")
+print("Your wishlist: ")
 
-else:
-    print("You are not old enough to get into nightclubs.")
+for j in range(len(wishlist)):
+    print(f"{j + 1}: {wishlist[j]}")

@@ -1,9 +1,7 @@
-wishlist = [str()]*5
+foods = [str()] * 3
 
-for i in range(5):
-    wishlist[i] = input(f"If you won the lottery, what would be the number {i + 1} thing you would buy? ")
+for i in range(3):
+    foods[i] = input(f"Enter your number {i + 1} favourite food: ")
 
-print("Your wishlist: ")
-
-for j in range(len(wishlist)):
-    print(f"{j + 1}: {wishlist[j]}")
+for j in range(len(foods)):
+    print(f"{j+1}: {foods[j]}")
