@@ -10,7 +10,7 @@ for l in range(5):
         longestWordCharCount = len(items[l])
         longestWord = l
 
-print("-" * (longestWordCharCount + 8))
+print("-" * (longestWordCharCount + 10))
 for j in range(5):
-    print(f"{j + 1}: {items[j].ljust(longestWordCharCount + 4)}|")
-print("-" * (longestWordCharCount + 8))
+    print(f"| {j + 1}: {items[j].ljust(longestWordCharCount + 4)}|")
+print("-" * (longestWordCharCount + 10))
