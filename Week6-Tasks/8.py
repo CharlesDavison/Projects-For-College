@@ -1,4 +1,4 @@
-def askForCode():
+def askForCode() -> int:
     while usrInput != code:
         usrInput = input("Wrong. Please Try Again: ")
 

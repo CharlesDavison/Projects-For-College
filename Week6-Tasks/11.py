@@ -3,12 +3,12 @@ def printName() -> int:
 
     return 0
 
-def twoNumbers():
+def twoNumbers() -> int:
     print(f"The total of the two numbers you entered are: {int(input("Please Enter a number: ")) + int(input("Please Enter another Number: "))}")
 
     return 0
 
-def closingMessage():
+def closingMessage() -> int:
     print("Goodbye.")
     exit
     
