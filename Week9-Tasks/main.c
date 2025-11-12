@@ -38,7 +38,7 @@ char** alphaBubbleSort(char** array, int arrayLen){
 
         for(int j = 0; j < arrayLen - 1 - i; j++){
             if(strcmp(array[j], array[j+1]) > 0){
-                char *tmp = array[j];
+                char* tmp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = tmp;
                 sorted = false;
@@ -51,11 +51,14 @@ char** alphaBubbleSort(char** array, int arrayLen){
 
 char** lenBubbleSort(char** array, int arrayLen){
     bool sorted;
+
     for (int i = 0; i < arrayLen - 1; i++) {
         sorted = true;
+
         for (int j = 0; j < arrayLen - 1 - i; j++) {
             size_t len_j = strlen(array[j]);
             size_t len_j1 = strlen(array[j+1]);
+
             if (len_j > len_j1 || (len_j == len_j1 && strcmp(array[j], array[j+1]) > 0)) {
                 char *tmp = array[j];
                 array[j] = array[j+1];
@@ -63,8 +66,10 @@ char** lenBubbleSort(char** array, int arrayLen){
                 sorted = false;
             }
         }
+
         if(sorted) break;
     }
+
     return array;
 }
 
@@ -78,12 +83,15 @@ int main()
             free(str);
             str = NULL;
         }
+
         str = getString();
         if (str == NULL) return 1;
 
         valid = true;
+
         for (size_t i = 0; str[i] != '\0'; i++) {
             unsigned char c = (unsigned char)str[i];
+
             if (!isalpha(c) && !isspace(c)) {
                 valid = false;
                 break;
@@ -93,6 +101,7 @@ int main()
         if (!valid) {
             fprintf(stderr, "Invalid input: only letters and spaces allowed. Please try again.\n");
         }
+
     } while (!valid);
 
     char* array[100];
