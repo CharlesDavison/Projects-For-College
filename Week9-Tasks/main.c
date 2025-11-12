@@ -31,13 +31,32 @@ char* getString(){
     }
 }
 
-char** bubbleSort(char** array, int arrayLen){
+char** alphaBubbleSort(char** array, int arrayLen){
     bool sorted;
     for(int i = 0; i < arrayLen - 1; i++){
         sorted = true;
 
         for(int j = 0; j < arrayLen - 1 - i; j++){
             if(strcmp(array[j], array[j+1]) > 0){
+                char *tmp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = tmp;
+                sorted = false;
+            }
+        }
+        if(sorted) break;
+    }
+    return array;
+}
+
+char** lenBubbleSort(char** array, int arrayLen){
+    bool sorted;
+    for (int i = 0; i < arrayLen - 1; i++) {
+        sorted = true;
+        for (int j = 0; j < arrayLen - 1 - i; j++) {
+            size_t len_j = strlen(array[j]);
+            size_t len_j1 = strlen(array[j+1]);
+            if (len_j > len_j1 || (len_j == len_j1 && strcmp(array[j], array[j+1]) > 0)) {
                 char *tmp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = tmp;
@@ -87,9 +106,16 @@ int main()
         arrayLen++;
     }
 
-    char** newArray = bubbleSort(array, arrayLen);
+    char** newArray = alphaBubbleSort(array, arrayLen);
 
 
+    for (int j = 0; j < arrayLen; j++){
+        printf("%s\n", newArray[j]);
+    }
+
+    printf("\n");
+    
+    newArray = lenBubbleSort(array, arrayLen);
     for (int j = 0; j < arrayLen; j++){
         printf("%s\n", newArray[j]);
     }
