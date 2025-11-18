@@ -89,6 +89,10 @@ int main()
 
         valid = true;
 
+        if (str[0] == '\0'){
+            valid = false;
+        }
+
         for (size_t i = 0; str[i] != '\0'; i++) {
             unsigned char c = (unsigned char)str[i];
 
