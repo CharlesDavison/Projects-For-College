@@ -5,7 +5,7 @@
 #include <ctype.h>
 
 char* getString(){
-    size_t size = 100;
+    int size = 100;
     char* input = malloc(size);
 
     if (input == NULL) {
@@ -16,11 +16,11 @@ char* getString(){
     printf("Enter your input: ");
     
     if (fgets(input, size, stdin) != NULL) {
-        size_t len = strlen(input);
+        int len = strlen(input);
         if (len > 0 && input[len - 1] == '\n') {
             input[len - 1] = '\0';
         }
-        for (size_t i = 0; input[i] != '\0'; i++) {
+        for (int i = 0; input[i] != '\0'; i++) {
             input[i] = (char)tolower((unsigned char)input[i]);
         }
         return input;
@@ -56,8 +56,8 @@ char** lenBubbleSort(char** array, int arrayLen){
         sorted = true;
 
         for (int j = 0; j < arrayLen - 1 - i; j++) {
-            size_t len_j = strlen(array[j]);
-            size_t len_j1 = strlen(array[j+1]);
+            int len_j = strlen(array[j]);
+            int len_j1 = strlen(array[j+1]);
 
             if (len_j > len_j1 || (len_j == len_j1 && strcmp(array[j], array[j+1]) > 0)) {
                 char *tmp = array[j];
@@ -93,7 +93,7 @@ int main()
             valid = false;
         }
 
-        for (size_t i = 0; str[i] != '\0'; i++) {
+        for (int i = 0; str[i] != '\0'; i++) {
             unsigned char c = (unsigned char)str[i];
 
             if (!isalpha(c) && !isspace(c)) {
