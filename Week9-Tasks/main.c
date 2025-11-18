@@ -31,6 +31,43 @@ char* getString(){
     }
 }
 
+char* validateString(){
+    char* str = NULL;
+    bool valid = false;
+
+    do {
+        if (str) {
+            free(str);
+            str = NULL;
+        }
+
+        str = getString();
+        if (str == NULL) return 1;
+
+        valid = true;
+
+        if (str[0] == '\0'){
+            valid = false;
+        }
+
+        for (int i = 0; str[i] != '\0'; i++) {
+            unsigned char c = (unsigned char)str[i];
+
+            if (!isalpha(c) && !isspace(c)) {
+                valid = false;
+                break;
+            }
+        }
+
+        if (!valid) {
+            fprintf(stderr, "Invalid input: only letters and spaces allowed. Please try again.\n");
+        }
+
+    } while (!valid);
+
+    return str;
+}
+
 char** alphaBubbleSort(char** array, int arrayLen){
     bool sorted;
     for(int i = 0; i < arrayLen - 1; i++){
@@ -75,39 +112,7 @@ char** lenBubbleSort(char** array, int arrayLen){
 
 int main()
 {
-    char *str = NULL;
-    bool valid = false;
-
-    do {
-        if (str) {
-            free(str);
-            str = NULL;
-        }
-
-        str = getString();
-        if (str == NULL) return 1;
-
-        valid = true;
-
-        if (str[0] == '\0'){
-            valid = false;
-        }
-
-        for (int i = 0; str[i] != '\0'; i++) {
-            unsigned char c = (unsigned char)str[i];
-
-            if (!isalpha(c) && !isspace(c)) {
-                valid = false;
-                break;
-            }
-        }
-
-        if (!valid) {
-            fprintf(stderr, "Invalid input: only letters and spaces allowed. Please try again.\n");
-        }
-
-    } while (!valid);
-
+    char* str = validateString();
     char* array[100];
     int arrayLen = 0;
 
