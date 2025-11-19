@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
 #include "sorting.h"
 char** alphaBubbleSort(char** array, int arrayLen){
