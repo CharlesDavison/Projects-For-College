@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #include "stringHandling.h"
 
@@ -43,7 +44,7 @@ char* validateString(){
         }
 
         str = getString();
-        if (str == NULL) return 1;
+        if (str == NULL) return NULL;
 
         valid = true;
 
