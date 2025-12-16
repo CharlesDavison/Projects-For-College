@@ -1,3 +1,9 @@
+// Structure To store Product Details.
+Structure Product{
+                Define Names As String;
+                Define Prices As Integer;
+};
+
 // Get The Total Price Of All Products Minus The Cheapest One.
 Total(Products[5] As Product){
         // Define Final Varaible
@@ -20,18 +26,18 @@ Sort(Products[5] As Product){
         Define Sorted As Boolean;
 
         // Outer loop. 
-        For (Define J As Integer = 0; J Less Than PricesLen - 1; J++){
+        For (Define I As Integer = 0; I Less Than PricesLen - 1; I++){
                 // Set sorted as true as we set it to false if we have to sort the array.
                 Sorted = True;
 
                 // Inner Loop
-                For (Define K As Integer = 0; K Less Than PricesLen - J; K++){
+                For (Define J As Integer = 0; J Less Than PricesLen - I - 1; J++){
                         // Compares Prices
-                        If (Products[K].Prices Greater Than Products[K+1].Prices){
+                        If (Products[J].Prices Greater Than Products[J+1].Prices){
                                 // Swaps The Items In The Array.
-                                Define Temp As Integer = Products[K];
-                                Products[K] = Products[K+1];
-                                Products[K+1] = Temp;
+                                Define Temp As Integer = Products[J];
+                                Products[J] = Products[J+1];
+                                Products[J+1] = Temp;
                                 Sorted = False;
                         }
                 }
@@ -41,33 +47,22 @@ Sort(Products[5] As Product){
         return Products;
 }
 
-// Structure To store Product Details.
-Structure Product{
-                Define Names As String;
-                Define Prices As Integer;
-};
-
 main(){
         // Defines An Array Of The Structure Defined.
         Define Products[5] As Product;
 
-        // Define Variable For The Loop.
-        Define I As Integer = 0;
-
         // Get User Input.
-        While (I Less Than 5){
+        For (Define I As Integer = 0; I Is Less Than 5; I++){
                 Display "Please Enter The Name Of The Product";
                 ReadInput Into Products[I].Names;
 
                 Display "Please Enter The Price For That Product";
                 ReadInput Into Prices[I].Prices;
-
-                I = I + 1;
         }
 
         // Products Gets Sorted, And Gets It's New Values.
         Products = Sort(Products);
 
         // Display The Total Price.
-        Display "The Total Price Of The Items You Entered Are: ", Total(Prices);
+        Display "The Total Price Of The Items You Entered Are: ", Total(Products);
 }
