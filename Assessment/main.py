@@ -5,7 +5,7 @@ from functions import *
 # Initaialises a dictionary(structure) called Product.
 Product = {
         "Name": str(),
-        "Price": int()
+        "Price": float()
 }
 
 # The main function where everything gets called.
@@ -16,7 +16,7 @@ def main():
         # Get's the user's input and saves it to the array.
         for i in range(SIZE):
                 products[i]["Name"] = input("Please Enter The Name Of The Product:\n> ")
-                products[i]["Price"] = int(input("Please Enter The Price Of That Product:\n> "))
+                products[i]["Price"] = round(float(input("Please Enter The Price Of That Product:\n> ")),2)
         
         # Calls the sort function to sort the array by price.
         newProductsDict = sort(products)
