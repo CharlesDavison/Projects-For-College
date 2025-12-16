@@ -1,45 +1,27 @@
-SIZE = 5
+# Imports a seperate file with all the functions and constants in it.
+# This makes the code more maintainable and radable.
+from functions import *
 
+# Initaialises a dictionary(structure) called Product.
 Product = {
         "Name": str(),
         "Price": int()
 }
 
-def total(products):
-        TotalPrice = 0
-        pricesLen = len(products)
-
-        for i in range(pricesLen):
-                TotalPrice += products[i]["Price"]
-
-        return TotalPrice - products[0]["Price"]
-
-def sort(products):
-        n = len(products)
-
-        sorted = False
-
-        for i in range(0, n - 1):
-                sorted = True
-
-                for j in range(0, n - i - 1):
-                        if products[j]["Price"] > products[j + 1]["Price"]:
-                                products[j], products[j + 1] = products[j + 1], products[j]
-                                sorted = False
-
-                if sorted: break
-
-        return products
-
+# The main function where everything gets called.
 def main():
+        # Creates an array of the dictionary initialised earlier. It makes everything empty or 0.
         products = [Product.copy() for _ in range(SIZE)]
 
+        # Get's the user's input and saves it to the array.
         for i in range(SIZE):
-                products[i]["Name"] = input("Please Enter The Name Of The Product:\n\t")
-                products[i]["Price"] = int(input("Please Enter The Price Of That Product:\n\t"))
+                products[i]["Name"] = input("Please Enter The Name Of The Product:\n> ")
+                products[i]["Price"] = int(input("Please Enter The Price Of That Product:\n> "))
         
+        # Calls the sort function to sort the array by price.
         newProductsDict = sort(products)
         
+        # Output Results in a formatted way.
         print("---------------------------------------------------")
         for i in range(SIZE):
                 print(f"\tProduct: {newProductsDict[i]["Name"]}")
@@ -47,10 +29,6 @@ def main():
                 print("---------------------------------------------------")
 
         print(f"Total(With Discount): £{total(newProductsDict)}")
-
-
-
-
 
 if __name__ == "__main__":
         main()
