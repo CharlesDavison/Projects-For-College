@@ -35,8 +35,8 @@ def main():
         products = [Product.copy() for _ in range(SIZE)]
 
         for i in range(SIZE):
-                products[i]["Name"] = input("Please Enter The Name Of The Product:\n")
-                products[i]["Price"] = int(input("Please Enter The Price Of That Product:\n"))
+                products[i]["Name"] = input("Please Enter The Name Of The Product:\n\t")
+                products[i]["Price"] = int(input("Please Enter The Price Of That Product:\n\t"))
         
         newProductsDict = sort(products)
         
