@@ -15,7 +15,7 @@ Total(Products[5] As Product){
                 TotalPrice = TotalPrice + Products[I].Prices;
         }
         // Returns The Fianl Price Minus The Cheapest Item. (Array Should Be Sorted, So First Index Should Be Cheapest)
-        return TotalPrice-Products[0].Prices;
+        return TotalPrice-Products[PricesLen-1].Prices;
 }
 
 // Sorts The Products Array Of Structure.
@@ -33,7 +33,7 @@ Sort(Products[5] As Product){
                 // Inner Loop
                 For (Define J As Integer = 0; J Less Than PricesLen - I - 1; J++){
                         // Compares Prices
-                        If (Products[J].Prices Greater Than Products[J+1].Prices){
+                        If (Products[J].Prices Less Than Products[J+1].Prices){
                                 // Swaps The Items In The Array.
                                 Define Temp As Integer = Products[J];
                                 Products[J] = Products[J+1];
