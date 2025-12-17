@@ -10,7 +10,7 @@ Product = {
 
 # The main function where everything gets called.
 def main():
-        # Creates an array of the dictionary initialised earlier. It makes everything empty or 0.
+        # Creates an array of the dictionary initialised earlier.
         products = [Product.copy() for _ in range(SIZE)]
 
         # Get's the user's input and saves it to the array.
@@ -24,7 +24,7 @@ def main():
         # Output Results in a formatted way.
         print("---------------------------------------------------")
         for i in range(SIZE):
-                print(f"\tProduct: {newProductsDict[i]["Name"]}")
+                print(f"\tName: {newProductsDict[i]["Name"]}")
                 print(f"\tPrice: £{newProductsDict[i]["Price"]}")
                 print("---------------------------------------------------")
 
