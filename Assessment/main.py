@@ -17,14 +17,21 @@ def main():
         for i in range(SIZE):
                 products[i]["Name"] = input("Please Enter The Name Of The Product:\n> ")
 
-                # Keep prompting until the user provides a valid float for Price.
+                # Keep prompting until the user provides a valid, non-negative float for Price.
                 while True:
                         price_input = input("Please Enter The Price Of That Product:\n> ")
                         try:
-                                products[i]["Price"] = round(float(price_input), 2)
+                                price_val = float(price_input)
+                                # Trigger the except block if the user entered a negative price
+                                if price_val < 0:
+                                        raise ValueError("Price cannot be negative")
+                                products[i]["Price"] = round(price_val, 2)
                                 break
-                        except:
-                                print("You either did something weird, or you typed something that wasn't a number. Please try again.")
+                        except ValueError:
+                                print("You probably typed something that wasn't a non-negative number.")
+                        except Exception as e:
+                                # Unexpected errors: show a short message and continue prompting
+                                print(f"Unexpected error: {e}")
         
         # Calls the sort function to sort the array by price.
         newProductsDict = sort(products)
