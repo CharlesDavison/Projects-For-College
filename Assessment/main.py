@@ -16,7 +16,15 @@ def main():
         # Get's the user's input and saves it to the array.
         for i in range(SIZE):
                 products[i]["Name"] = input("Please Enter The Name Of The Product:\n> ")
-                products[i]["Price"] = round(float(input("Please Enter The Price Of That Product:\n> ")),2)
+
+                # Keep prompting until the user provides a valid float for Price.
+                while True:
+                        price_input = input("Please Enter The Price Of That Product:\n> ")
+                        try:
+                                products[i]["Price"] = round(float(price_input), 2)
+                                break
+                        except:
+                                print("You either did something weird, or you typed something that wasn't a number. Please try again.")
         
         # Calls the sort function to sort the array by price.
         newProductsDict = sort(products)
@@ -24,8 +32,9 @@ def main():
         # Output Results in a formatted way.
         print("---------------------------------------------------")
         for i in range(SIZE):
-                print(f"\tName: {newProductsDict[i]["Name"]}")
-                print(f"\tPrice: £{newProductsDict[i]["Price"]}")
+                # Use single-quoted f-strings so the dictionary key strings don't clash with outer quotes
+                print(f'\tName: {newProductsDict[i]["Name"]}')
+                print(f'\tPrice: £{newProductsDict[i]["Price"]}')
                 print("---------------------------------------------------")
 
         print(f"Total(With Discount): £{total(newProductsDict)}")
