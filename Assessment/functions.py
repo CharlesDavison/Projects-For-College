@@ -2,16 +2,6 @@
 # This will cause the program to be more readable as I am not referencing any magic numbers.
 SIZE = 5
 
-# Calculate the total of all the products with the discount.
-def total(products):
-        TotalPrice = 0
-        pricesLen = len(products)
-
-        for i in range(pricesLen):
-                TotalPrice += products[i]["Price"]
-
-        return TotalPrice - products[pricesLen-1]["Price"]
-
 # Sorts the products array by it's price.
 def sort(products):
         n = len(products)
@@ -29,3 +19,13 @@ def sort(products):
                 if sorted: break
 
         return products
+
+# Calculate the total of all the products with the discount.
+def total(products):
+        TotalPrice = 0
+        pricesLen = len(products)
+
+        for i in range(pricesLen-1):
+                TotalPrice += products[i]["Price"]
+
+        return TotalPrice
