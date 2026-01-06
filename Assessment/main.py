@@ -28,7 +28,7 @@ def main():
                                 products[i]["Price"] = round(price_val, 2)
                                 break
                         except ValueError:
-                                print("You probably typed something that wasn't a non-negative number.")
+                                print("You probably typed something that wasn't a non-negative number. Try again.")
                         except Exception as e:
                                 # Unexpected errors: show a short message and continue prompting
                                 print(f"Unexpected error: {e}")
