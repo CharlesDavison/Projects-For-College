@@ -9,22 +9,39 @@ def testArgs(argc):
 
     return 0
 
-def main():
-    argc = len(sys.argv)
-    argv = sys.argv
-
+def main(argc, argv):
     if testArgs(argc) == 0:
         # Main code goes into this if statement.
+        MIN_PORT = 21
+        MAX_PORT = 80
+
         hostname = argv[1]
         try:
-            host_ip = socket.gethostbyname(hostname)
+            hostIP = socket.gethostbyname(hostname)
+
         except socket.gaierror:
             # If it can't resolve the domain/Figure out what tf the user entered.
             print("Could not resolve into an IP address. Run the program again.")
             return 1
 
-        print(host_ip)
+        for port in range(MIN_PORT, MAX_PORT + 1):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(.5)
+
+            try:
+                sock.connect((hostIP, port))
+                print(f"{hostIP} port No {port}: open")
+
+            except KeyboardInterrupt:
+                print("The Program has been terminated")
+                return 1
+
+            except:
+                pass
+                
+
+
 
 
 if __name__ == "__main__":
-    main()
+    main(len(sys.argv), sys.argv)
